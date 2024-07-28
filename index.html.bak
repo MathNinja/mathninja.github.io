@@ -1,0 +1,34 @@
+---
+title: Home
+layout: default
+---
+
+    <h1>Welcome</h1>
+
+    <div class="container">
+    <p>Hi, I'm Alex. I'm director of curriculum at Math Academy.</p>
+
+    <p>Mauris tincidunt sapien sem, a elementum nulla pharetra eu. Phasellus turpis velit, ultricies ac tempor et, volutpat id urna. Nulla eu enim rutrum, sodales tellus et, interdum orci. Ut a sagittis leo, id condimentum metus. Integer eget est quis orci sollicitudin tempor vitae ut turpis. Maecenas eleifend mauris nec tempus volutpat. In venenatis, risus maximus cursus mollis, enim metus pharetra magna, sed gravida tellus velit sit amet lacus.</p>
+
+    <img class="float-image-right" width="300px;" src="assets/images/math_ninja.jpg" />	
+
+    <p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur tempus sodales turpis, a bibendum justo iaculis at. Proin eu feugiat risus. Suspendisse eu accumsan est. Nulla porttitor eget sem quis ultrices. Cras vel metus nulla. Curabitur ornare libero et accumsan suscipit. Donec vel imperdiet arcu. Duis tincidunt diam metus, in eleifend neque bibendum et. In vehicula luctus eros, vitae dapibus dui eleifend tincidunt. Nunc semper commodo ante a pretium. Etiam a volutpat erat, viverra tincidunt lorem. Praesent facilisis, tellus et porta feugiat, nisi quam iaculis nisl, commodo sollicitudin ipsum neque at dui. Fusce ac ex lorem. Vestibulum auctor porttitor odio eu placerat. Nullam posuere cursus diam ac faucibus.
+    </p>
+
+    <p>Mauris tincidunt sapien sem, a elementum nulla pharetra eu. Phasellus turpis velit, ultricies ac tempor et, volutpat id urna. Nulla eu enim rutrum, sodales tellus et, interdum orci. Ut a sagittis leo, id condimentum metus. Integer eget est quis orci sollicitudin tempor vitae ut turpis. Maecenas eleifend mauris nec tempus volutpat. In venenatis, risus maximus cursus mollis, enim metus pharetra magna, sed gravida tellus velit sit amet lacus.</p>
+
+     <p>
+    This is one of my favorite formulas:
+    $$
+    \sum_{i=1}^n i = \dfrac12 n(n+1) 
+    $$	
+    </p>
+
+	<p>Mauris tincidunt sapien sem, a elementum nulla pharetra eu. Phasellus turpis velit, ultricies ac tempor et, volutpat id urna. Nulla eu enim rutrum, sodales tellus et, interdum orci. Ut a sagittis leo, id condimentum metus. Integer eget est quis orci sollicitudin tempor vitae ut turpis. Maecenas eleifend mauris nec tempus volutpat. In venenatis, risus maximus cursus mollis, enim metus pharetra magna, sed gravida tellus velit sit amet lacus.</p>
+
+	<p>
+	Praesent vel enim ac ipsum imperdiet tristique egestas quis ligula. Suspendisse vulputate ante et sapien tristique consequat. Maecenas scelerisque eget turpis quis dictum. Duis non mollis odio. Vestibulum sed enim ac quam laoreet pulvinar. Nam magna erat, sagittis in cursus vitae, pellentesque et dui. Pellentesque eros sem, vehicula non convallis at, placerat sit amet mauris. Integer pellentesque tincidunt lobortis. Nulla facilisi. In hac habitasse platea dictumst. Cras accumsan bibendum nisl in porta. Quisque sed condimentum velit. Cras et neque at eros bibendum cursus sit amet eget neque.
+	</p>
+
+</div> 

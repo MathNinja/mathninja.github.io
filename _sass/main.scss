@@ -1,0 +1,245 @@
+/* Global Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    font-size: 18px;
+    line-height: 1.7;
+    color: #333333;
+    background-color: #f5f7fa;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    color: #1e73be;
+    text-decoration: none;
+}
+
+p {
+	padding-left: 0px;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+
+h1, h2, h3, h3 {
+    color: #5E5E5E;	
+}
+
+h1 {
+    font-size: 32px;
+    margin: 0;
+    text-align: left;
+    width: 100%;
+    box-sizing: border-box;
+
+}
+
+h1 a {
+	color: white;
+
+}
+
+/** Header and Footer **/
+
+header{
+   background-color: #1273B0;
+   height: 80px;
+   text-align: left;
+}
+
+header {
+	color: white;
+	font-weight: bold;
+	font-size: 45px;
+}
+
+footer{
+   background-color: #1273B0;
+   height: 30px;
+   margin-top: 30px;
+   font-color: white;
+   font-size: 12px;
+   text-align: center;
+}
+
+  .circle {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    background-image: url('/assets/images/math_ninja.jpg');
+    background-size: cover; /* Ensures the image covers the entire circle */
+    background-position: ceb; /* Centers the image */
+    border: 2px solid #000; /* Optional: add a border */
+    float: right;
+  }
+
+
+
+
+/** Navigation **/
+
+nav {
+    margin-bottom: 20px;
+    font-size: 20px;
+    text-align: left;
+}
+
+
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+}
+
+nav ul li {
+    display: inline-block;
+}
+
+nav ul li a {
+    color: #1e73be;
+    padding: 5px 10px;
+    border-radius: 3px;
+}
+
+nav ul li a:hover {
+    background-color: #e0e4e8;
+}
+
+nav ul li a.current {
+    font-weight: bold; /* Optional: additional styling */
+}
+
+
+
+/** Layout **/
+
+.container {
+    max-width: 950px;
+    margin: 30px auto 0 auto;
+  }
+
+.container#header {
+    align: text-right;
+  }
+
+div.container#header {
+
+}
+
+div.container#main {
+    padding: 30px; /* Add padding for spacing inside the box */
+    border: 1px solid #e0e4e8; /* Light gray border */
+    border-radius: 10px; /* Rounded corners */
+    background-color: white; /* Background color inside the box */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow for depth */
+    min-height: 1000px;
+}
+ 
+
+
+
+/* Blog Post */
+.post {
+    margin-bottom: 40px;
+    border-bottom: 1px solid #e0e4e8;
+    padding-bottom: 20px;
+}
+
+.post h2 {
+    font-size: 2em;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.post p {
+    margin: 10px 0;
+    text-align: justify;
+}
+
+.post .meta {
+    font-size: 0.9em;
+    color: #7f8c8d;
+}
+
+.post img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-top: 15px;
+}
+
+/* Code Blocks */
+pre {
+    background-color: #f5f5f5;
+    border-left: 4px solid #1e73be;
+    padding: 15px;
+    overflow-x: auto;
+    border-radius: 5px;
+}
+
+code {
+    background-color: #f0f2f5;
+    padding: 2px 5px;
+    border-radius: 3px;
+    font-family: 'Courier New', monospace;
+}
+
+/* Footer */
+footer {
+    font-size: 0.85em;
+    color: #999999;
+    border-top: 1px solid #e0e4e8;
+    padding-top: 15px;
+}
+
+/* Buttons */
+button {
+    background-color: #1e73be;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #154a77;
+}
+
+.float-image-left {
+    float: left; /* or float: right; for the opposite side */
+    margin: 0 15px 15px 0; /* Adjust margin as needed */
+    max-width: 40%; /* Adjust max-width as needed */
+  	border-radius: 10px; /* Adjust the value as needed for more or less rounding */
+}
+
+.float-image-right {
+    float: right; /* or float: right; for the opposite side */
+    margin: 0 15px 15px 15px; /* Adjust margin as needed */
+    max-width: 40%; /* Adjust max-width as needed */
+    border-radius: 10px; /* Adjust the value as needed for more or less rounding */
+}
+
+
+
+/* Media Queries */
+@media (max-width: 600px) {
+    body {
+        font-size: 16px;
+    }
+
+    .container {
+        padding: 15px;
+    }
+
+    nav ul li {
+        display: block;
+        margin: 5px 0;
+    }
+}

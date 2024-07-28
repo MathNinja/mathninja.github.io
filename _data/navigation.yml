@@ -1,0 +1,17 @@
+- name: Home
+  link: /
+- name: Blog
+  link: /blog.html
+- name: Math Academy
+  link: /math-academy.html
+- name: Links
+  link: /links.html
+- name: Resources
+  link: /resources.html
+- name: About
+  link: /about.html
+- name: Contact
+  link: /contact.html
+
+
+

@@ -1,0 +1,39 @@
+---
+layout: post
+title:  "Remembering Definitions and Theorems"
+date:   2024-07-25 15:59:21 +0100
+categories: math
+author: Alex
+---
+
+Whenever recalling a definition or theorem, I **never** look it up first.
+
+Instead, I always:
+
+1. Write down whatever I can remember purely from memory.
+
+2. Polish what I have until it resembles a high-quality definition or theorem statement.
+
+3. Once I'm satisfied, I consult high-quality resources to verify and, if necessary, further refine the definition or theorem.
+
+Points 1-2 relate to my [recent discussion]() about internalizing mathematical concepts whenever possible.
+
+I find it difficult to remember definitions or theorems verbatim, so I would not normally recommend this.
+
+Instead, use your experience in dealing with the types of problems that use the definition/theorem to reconstruct a suitable definition/theorem statement.
+
+Let's pick one example: "Give the definition of an invertible matrix."
+
+My thought process would be something like the following:
+
+
+Right, invertible matrices. Okay, let's define a matrix $A.$ Only square matrices are invertible, so let $A$ be an $n \times n$ matrix. Now, what does it mean for $A$ to be invertible? Well, it means there exists another $n \times n$ matrix, call it $B$, such that when I multiply the two together (in either order), I get the $n \times n$ identity matrix.
+
+
+Huh, it seems like I have it. Okay, let's try to write a proper definition:
+
+> Let $A$ be an $n \times n$ matrix. The matrix $A$ is invertible if there exists an $n \times n$ matrix $B$ such that $AB = BA = I_n,$ where $I_n$ is the $n \times n$ identity matrix.
+
+I haven't looked up this definition in years. But after writing the above, I checked a few resources, and this definition looks fine. I could have used slightly different phrasing or notation, but the essence is correct, and all important details are there.
+
+Once you've practiced this process a few times (using spaced repetition, of course), you'll find that you can write down the definitions more accurately and quickly.
