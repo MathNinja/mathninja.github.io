@@ -18,3 +18,8 @@ I've been married for forteen years, and have one son.
 
 I call myself the Math Ninjas because (a) I think it's a cool-sounding name, and (b) I was a pretty good martial artist in my youth.
 
+Some math:
+
+\[
+e^{i\pi} + 1 = 0
+\]
