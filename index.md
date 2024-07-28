@@ -4,6 +4,8 @@ title: Home
 theme: minima
 ---
 
+**Please Note:** This site is under construction.
+
 <img class="float-image-left" src="assets/images/profile.jpg" width = "300px">
 
 I'm Alex, a mathematican based in Tonbridge, England. 
