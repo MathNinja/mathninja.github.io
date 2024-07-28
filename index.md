@@ -20,6 +20,6 @@ I call myself the Math Ninjas because (a) I think it's a cool-sounding name, and
 
 Some math:
 
-\[
+$$
 e^{i\pi} + 1 = 0
-\]
+$$
