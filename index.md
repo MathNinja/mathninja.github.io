@@ -14,7 +14,7 @@ I have a Ph.D. in mathematics from University College London.
 
 I've taught math to hundreds of students over the years. My of my experience is at undergraduate and A-level. Finding ways to effectively communicate math at *all* levels in my passion.
 
-I've been married for forteen years, and have one son. 
+I've been married for forteen years, and have one son who is six years old.  
 
 I call myself the Math Ninjas because (a) I think it's a cool-sounding name, and (b) I was a pretty good martial artist in my youth.
 
