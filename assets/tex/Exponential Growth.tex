@@ -1,0 +1,76 @@
+\documentclass[tikz, border=5mm]{article}
+\usepackage{pgfplots}
+\usepackage{amsmath}
+\pgfplotsset{compat=1.8}
+ \setlength{\textwidth}{9.5cm} 
+\begin{document}
+\pagestyle{empty}
+\definecolor{deepskyblue}{rgb}{0.173,0.447,0.682}
+\definecolor{orangepeel}{rgb}{0.902, 0.624, 0}
+\definecolor{lightyellow}{rgb}{0.953,0.882,0.388}
+\definecolor{darkgreen}{rgb}{0.271, 0.608, 0.463}
+\definecolor{lightblue}{rgb}{0.484,0.702,0.894}
+\definecolor{rustred}{rgb}{0.784,0.392,0.149}
+\definecolor{fadedpink}{rgb}{0.753,0.494,0.643} 
+
+\noindent \small
+The graph of $y=2^x$ drawn to scale in the system with a base unit of $1\:\textrm{mm}$ on a sheet of paper. The points $(3,8),$ $(4,16),$ $(5,32),$ and $(6,64)$ lie on the graph. How tall (in $\textrm{mm}$) should we take the paper so that we could draw the point $(100,2^{100})?$
+
+\hspace{1cm}
+
+\begin{tikzpicture}
+
+\begin{axis}[
+    tick label style={font=\footnotesize},
+    label style={font=\small},
+    legend style={font=\footnotesize},
+    tick style={draw=black,thick},
+    minor tick style={draw=black, ultra thin, lightgray},
+    axis line style = thick,
+    axis y line = center,
+    axis x line = middle,
+    %axis equal,
+    %grid = both,
+    xmin = 0, xmax = 110,
+    ymin = 0, ymax = 110,
+    xtick = {100}, xticklabels={100 mm},
+    ytick = {8,16,32,64}, yticklabels={8 mm, 16 mm, 32 mm, 64 mm},
+    minor xtick={1,...,107},
+    minor ytick={1,...,106},    
+    xlabel = {$x$}, ylabel = {$y$},
+    xlabel style={below right}, ylabel style={above left},
+    every axis x label/.style={at={(ticklabel* cs:1.02)},anchor=west},
+    every axis y label/.style={at={(ticklabel* cs:1.02)},anchor=south}
+]
+
+\plot[domain=0:6.75,samples=200,orangepeel,very thick,->]{2^x};
+
+%\node[circle,color=deepskyblue,fill,inner sep=1pt] at (axis cs:1,2) {};
+%\node[circle,color=deepskyblue,fill,inner sep=1pt] at (axis cs:2,4) {};
+\node[circle,color=deepskyblue,fill,inner sep=1pt,label=0:{\scriptsize $(3,8)$}] at (axis cs:3,8) {};
+\node[circle,color=deepskyblue,fill,inner sep=1pt,label=0:{\scriptsize $(4,16)$}] at (axis cs:4,16) {};
+\node[circle,color=deepskyblue,fill,inner sep=1pt,label=0:{\scriptsize $(5,32)$}] at (axis cs:5,32) {};
+\node[circle,color=deepskyblue,fill,inner sep=1pt,label=0:{\scriptsize $(6,64)$}] at (axis cs:6,64) {};
+
+\draw[line width=5pt, lightblue!10, ->] (axis cs:100,10) -- (axis cs:100,110);
+\node[right] at (axis cs:7,90) {$\small y=2^x$};
+
+\node[align=center, text width=4cm] at (axis cs:75,60) {\small How tall should be the sheet \\ of paper to draw \\ the point $(100,2^{100})?$};
+
+\end{axis}
+
+\node[circle, fill=orangepeel!30, inner sep=2pt, 
+label=0:{\small $\approx$ the height of Empire State Building}] 
+at (0,-1) {\small A:};
+\node[circle, fill=orangepeel!30, inner sep=2pt, 
+label=0:{\small $\approx$ $2.7$ diameters of Earth}] 
+at (0,-1.65) {\small B:};
+\node[circle, fill=orangepeel!30, inner sep=2pt, 
+label=0:{\small $\approx$ the distance to the Moon}] 
+at (0,-2.3) {\small C:};
+\node[circle, fill=orangepeel!30, inner sep=2pt, 
+label=0:{\small $\approx$ $1.4$ diameters of the Observable Universe}] 
+at (0,-2.95) {\small D:};
+
+\end{tikzpicture}
+\end{document}

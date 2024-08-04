@@ -1,0 +1,103 @@
+\documentclass[tikz, border=5mm]{article} 
+\usepackage{pgfplots}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{cancel}
+\usepackage{enumerate}
+\usetikzlibrary{calc}  
+\usepackage{tikz-cd}
+
+\definecolor{deepskyblue}{rgb}{0.173,0.447,0.682}
+\definecolor{orangepeel}{rgb}{0.902, 0.624, 0}
+\definecolor{lightyellow}{rgb}{0.953,0.882,0.388}
+\definecolor{darkgreen}{rgb}{0.271, 0.608, 0.463}
+\definecolor{lightblue}{rgb}{0.484,0.702,0.894}
+\definecolor{rustred}{rgb}{0.784,0.392,0.149}
+\definecolor{fadedpink}{rgb}{0.753,0.494,0.643}
+
+\begin{document}
+\pagestyle{empty}
+
+\textbf{THE FIRST ISOMORPHISM THEOREM:}
+
+\[
+\begin{tikzcd}[column sep=5em,row sep=5em]
+    G \arrow{r}{\phi} \arrow{d}[left]{\pi} & \text{Im}(\phi) \subseteq H \\
+    G/\text{Ker}(\phi) \arrow[dashrightarrow]{ru}[below right]{\mu\,(\cong)} 
+    %& \text{Im}(\phi) \arrow{u}[right]{\subseteq (\text{includes})} 
+\end{tikzcd}
+\]
+ 
+\textbf{CONCRETE EXAMPLE:}
+  
+\[
+\phi: \mathbb{Z}_{6} \to \mathbb{Z}_{4}, \quad \textrm{where} \quad
+\phi(x) = 2x \: \textrm{mod}\:4
+\]  
+ 
+
+\[ 
+\begin{tikzcd}[column sep=5em,row sep=5em]
+    \mathbb{Z}_{6} \arrow{r}{\phi} \arrow{d}[left]{\pi} & \{ 0,\,2 \} \subseteq \mathbb{Z}_4 \\
+    \mathbb{Z}_{6}/\left\{ 0, 2, 4 \right\} \arrow[dashrightarrow]{ru}[below right]{\mu\,(\cong)} 
+    %& \text{Im}(\phi) \arrow{u}[right]{\subseteq (\text{includes})} 
+\end{tikzcd}
+\]
+
+\def\firstcircle{(2,3) circle (1.3cm)}
+\def\secondcircle{(2,-1) circle (1.3cm)}
+\def\thirdcircle{(7.05,3) circle (1.3cm)}
+\def\myellipse {(6.75,3) ellipse (0.5cm and 1cm)}
+
+\textbf{DIAGRAM REPRESENTATION OF THE EXAMPLE:}
+
+\begin{center}
+\begin{tikzpicture}
+
+
+\draw[thin,gray] \firstcircle node[text=black, above=1.5cm] {$\mathbb{Z}_6$};
+\draw[thin,gray] \secondcircle node[text=black, below=1.5cm] {$\mathbb{Z}_6/\underbrace{\{0,2,4\}}_{\textrm{Ker}(\phi)}$};
+\draw[thin,gray] \thirdcircle node[text=black, above=1.5cm] {$\mathbb{Z}_4$};
+\draw[thin,gray,dashed,fill=lightblue!15] \myellipse node[text=black, below=1.25cm] {$\underbrace{\{0,2\}}_{\textrm{Im}(\phi)}$};
+%\draw[thick] (0,0) node[anchor=north]{}
+%-- (7,0) node[anchor=north]{}
+%-- (7,5) node[anchor=south]{}
+%-- (0,5) node[anchor=south]{}
+%-- cycle;
+
+%\node[label={0:{\large $U$}}] at (7,5) {};
+%\node[label={0:{\large $A$}}] at (.95,4.05) {};
+%\node[label={0:{\large $B$}}] at (5.2,4.05) {};
+
+% G
+\node[circle, draw=none, fill=deepskyblue, inner sep=2.5pt, label={90:{\small $\color{deepskyblue}0$}}] at (1.5,3.5) {};
+\node[circle, draw=none, fill=deepskyblue, inner sep=2.5pt, label={90:{\small $\color{deepskyblue}2$}}] at (2.0,3.5) {};
+\node[circle, draw=none, fill=deepskyblue, inner sep=2.5pt, label={90:{\small $\color{deepskyblue}4$}}] at (2.5,3.5) {};
+\node[circle, draw=none, fill=orangepeel, inner sep=2.5pt, label={-90:{\small $\color{orangepeel}1$}}] at (1.5,2.5) {};
+\node[circle, draw=none, fill=orangepeel, inner sep=2.5pt, label={-90:{\small $\color{orangepeel}3$}}] at (2.0,2.5) {};
+\node[circle, draw=none, fill=orangepeel, inner sep=2.5pt, label={-90:{\small $\color{orangepeel}5$}}] at (2.5,2.5) {};
+
+% G/Ker
+\node[rectangle, draw=none, fill=deepskyblue, inner sep=4.5pt, label={90:{\small $\color{deepskyblue}\{0,2,4\}$}}] at (2,-0.75) {};
+\node[rectangle, draw=none, fill=orangepeel, inner sep=4.5pt, label={-90:{\small $\color{orangepeel}1\!+\!\{0,2,4\}$}}] at (2,-1.25) {};
+
+% Im
+\node[circle, draw=none, fill=deepskyblue, inner sep=2.5pt, label={90:{\small $\color{deepskyblue}0$}}] at (6.75,3.25) {};
+\node[circle, draw=none, fill=black, inner sep=2.5pt, label={90:{\small $1$}}] at (7.5,3.25) {};
+\node[circle, draw=none, fill=orangepeel, inner sep=2.5pt, label={-90:{\small $\color{orangepeel}2$}}] at (6.75,2.75) {};
+\node[circle, draw=none, fill=black, inner sep=2.5pt, label={-90:{\small $3$}}] at (7.5,2.75) {};
+
+% Phi
+\draw[->, very thick] (3.5,3) -- (5.5,3) node[midway, above] {$\phi$}; 
+
+% Pi
+\draw[->, very thick] (2,1.5) -- (2,0.5) node[midway, left] {$\pi$};
+
+% Mu
+\draw[->, dashed, very thick] (3.25,-0.25) -- (6,2) node[midway, below right] {$\mu\,(\cong)$}; 
+
+\end{tikzpicture}
+\end{center}
+
+\end{document}
