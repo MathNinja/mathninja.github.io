@@ -1,0 +1,147 @@
+\documentclass[border=1mm]{article}
+\usepackage{pgfplots}
+\usepgfplotslibrary{patchplots}
+\usepgfplotslibrary{colormaps}
+\usepackage{tikz-3dplot}
+\usetikzlibrary{patterns}
+
+
+\begin{document}
+
+\definecolor{deepskyblue}{rgb}{0.173,0.447,0.682}
+\definecolor{orangepeel}{rgb}{0.902, 0.624, 0}
+\definecolor{lightyellow}{rgb}{0.953,0.882,0.388}
+\definecolor{darkgreen}{rgb}{0.271, 0.608, 0.463}
+\definecolor{lightblue}{rgb}{0.484,0.702,0.894}
+\definecolor{rustred}{rgb}{0.784,0.392,0.149}
+\definecolor{fadedpink}{rgb}{0.753,0.494,0.643}
+
+\def\bottomcolor{deepskyblue}
+\def\topcolor{deepskyblue}
+
+\def\ccolor{orangepeel}
+\def\surfcolor{lightblue}
+
+\pagestyle{empty}
+
+\begin{center}
+Visualizing the $\min$ and $\max$ of the quadratic function  
+\[
+Q(\mathbf{x})=2x_1^2 + 4x_2^2,
+\] 
+subject to the constraint $\| \mathbf{x} \| = 1.$ 
+\end{center}
+
+\hrule
+
+\vspace{5mm}
+
+\begin{tikzpicture}[scale=1.5, rotate=0]
+
+\begin{axis}[
+		clip=false,
+		view={120}{20},
+		hide axis,
+		xmin=-1.5,xmax=1.8,
+		ymin=-1.5,ymax=1.8,
+		zmin=-1,zmax=6, 
+	]
+   
+% Axes
+\def\axwidth{0.4}
+
+% X
+\draw[line width=1.3*\axwidth, dashed, opacity=0.5] (axis cs:-1.8,0,0) -- (axis cs:1,0,0)
+		node[left, xshift=4pt, yshift=-3pt] {\scriptsize }; 
+\draw[line width=1.3*\axwidth, -stealth] (axis cs:1,0,0) -- (axis cs:1.8,0,0)
+		node[left, xshift=4pt, yshift=-3pt] {\scriptsize $x_1$}; 
+
+
+% Y
+\draw[line width=1.3*\axwidth, ] (axis cs:0,-1.5,0) -- (axis cs:0,-1.15,0)
+		node[right, yshift=-2pt] {};
+\draw[line width=1.3*\axwidth, dashed, opacity=0.5] (axis cs:0,-1.15,0) -- (axis cs:0,1,0)
+		node[right, yshift=-2pt] {}; 
+\draw[line width=1.3*\axwidth, -stealth] (axis cs:0,1,0) -- (axis cs:0,1.6,0)
+		node[right, yshift=-2pt] {\scriptsize $x_2$}; 
+
+% Z
+\draw[line width=1.3*\axwidth] (axis cs:0,0,-1.5) -- (axis cs:0,0,-0.75);
+\draw[line width=1.3*\axwidth, dashed, opacity=0.5] (axis cs:0,0,-0.75) -- (axis cs:0,0,1.8);
+
+
+%%% Cylinder
+
+% Ellipse dashed
+\plot3[deepskyblue, line width=\axwidth/2, domain={90+25}:{270+25}, samples=100, samples y=0, dashed]
+	({1*cos(x)},{1*sin(x)},{0});
+% Side surf cylinder
+\draw[draw=\surfcolor!30, solid, line width=\axwidth/2, fill=\surfcolor!30, fill opacity=0.35]
+	plot[variable=\x, domain={450+25}:{270+25}, samples=200] 
+		(axis cs:{1*cos(\x)},{1*sin(\x)},{0}) --
+	plot[variable=\x, domain={270+25}:{450+25}, samples=200] 
+		(axis cs:{1*cos(\x)},{1*sin(\x)},{4*sin(\x)*sin(\x)+2*cos(\x)*cos(\x)}) --
+	cycle;
+% Ellipse solid
+\plot3[deepskyblue, line width=\axwidth*1.5, domain={-90+25}:{90+25}, samples=300, samples y=0]
+	({1*cos(x)},{1*sin(x)},{0});
+
+%%% Paraboloid	
+	
+% Paraboloid outer
+\draw[draw=fadedpink!30, solid, line width=\axwidth/2, fill opacity=0.5, shading = axis, left color=fadedpink!80!black, right color=fadedpink!30!white, shading angle=135, anchor=north]
+	plot[variable=\x, domain=-1.2:1.2, samples=300]	
+		(axis cs:{\x},{-0.335*\x+0.0655},{2*\x*\x}) -- 
+	plot[variable=\x, domain=-45:135, samples=100] 
+		(axis cs:{1*cos(\x)},{1*sin(\x)},{4*sin(\x)*sin(\x)+2*cos(\x)*cos(\x)});
+% Paraboloid inner		
+\draw[draw=none, solid, line width=\axwidth/2, fill opacity=0.5, shading = axis, left color=fadedpink!80!black, right color=fadedpink!30!white, shading angle=-135, anchor=north]
+	plot[variable=\x, domain=183:{360+45}, samples=100] 
+		(axis cs:{1*cos(\x)},{1*sin(\x)},{4*sin(\x)*sin(\x)+2*cos(\x)*cos(\x)});	
+% Paraboloid Top
+\plot3[orangepeel, solid, line width=2*\axwidth, domain=0:135, samples=100, samples y=0]
+	({1*cos(x)},{1*sin(x)},{4*sin(x)*sin(x)+2*cos(x)*cos(x)});
+\plot3[orangepeel, dashed, line width=2*\axwidth/2, domain=135:183, samples=100, samples y=0]
+	({1*cos(x)},{1*sin(x)},{4*sin(x)*sin(x)+2*cos(x)*cos(x)});
+\plot3[orangepeel, solid, line width=2*\axwidth, domain=183:360, samples=100, samples y=0]
+	({1*cos(x)},{1*sin(x)},{4*sin(x)*sin(x)+2*cos(x)*cos(x)});
+	
+% Z - continue
+\draw[line width=1.3*\axwidth, -stealth] (axis cs:0,0,1.7) -- (axis cs:0,0,5.0)
+		node[above] {\scriptsize $z$};
+		
+% Min/max dashed lines		
+\draw[line width=\axwidth/2, deepskyblue, dashed] (axis cs:1,0,0) -- (axis cs:1,0,2);
+\draw[line width=\axwidth/2, deepskyblue, dashed] (axis cs:0,1,0) -- (axis cs:0,1,4);		
+		
+% Curve equation
+\node[above, orangepeel!80!black] at (axis cs:0,-1.0,5.0) {\scriptsize $z\!=\!2x_1^2+4x_2^2$ (where $x_1^2+x_2^2=1$)};
+\draw[- >, line width=\axwidth/2, orangepeel!80!black, samples=200, shorten >= 2pt] (axis cs:0,-1.0,5.1) to (axis cs:0,-1,4);
+
+% Units on x_1 and x_2
+\node[circle, draw=none, fill=deepskyblue, inner sep=0.75pt, label={[below right, xshift=-5pt]:{\tiny $1$}}]
+	at (axis cs: 1,0,0) {};
+\node[circle, draw=none, fill=deepskyblue, inner sep=0.75pt, label={[below, xshift=1pt]:{\tiny $1$}}]
+	at (axis cs: 0,1,0) {};
+
+% Maximum label
+\node[above, black] at (axis cs:0,1,4.5) {\scriptsize $\mathrm{max}$};
+\node[circle, draw=none, fill=red, inner sep=1pt] at (axis cs: 0,1,4) {};
+\draw[- >, line width=\axwidth/2, black, samples=200, shorten >= 3pt] (axis cs:0,1,4.6) to (axis cs:0,1,4);
+
+% Minimum label
+\node[above, black] at (axis cs:1,0,2.5) {\scriptsize $\mathrm{min}$};
+\node[circle, draw=none, fill=red, inner sep=1pt] at (axis cs: 1,0,2) {};
+\draw[- >, line width=\axwidth/2, black, samples=200, shorten >= 3pt] (axis cs:1,0,2.6) to (axis cs:1,0,2);
+
+% Ellipse equation
+\node[below, deepskyblue!80!black] at (axis cs:{cos(45)},{sin(45)},-1) {\scriptsize $x_1^2+x_2^2=1$};
+\draw[- >, line width=\axwidth/2, deepskyblue!80!black, samples=200, shorten >= 2pt] (axis cs:{cos(45)},{sin(45)},-1.1) to  (axis cs:{cos(45)},{sin(45)},{0}); 
+	
+% Paraboloid equation
+\node[left, fadedpink!80!black] at (axis cs:1,-1,3.15) {\scriptsize $z\!=\!2x_1^2+4x_2^2$};
+\draw[- >, line width=\axwidth/2, fadedpink!80!black, samples=200, shorten >= 2pt] (axis cs:1,-1,3.15) to (axis cs:0.5,-0.5,3);	
+	
+\end{axis}
+\end{tikzpicture}
+\end{document}  

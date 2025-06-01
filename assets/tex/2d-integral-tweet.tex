@@ -1,0 +1,211 @@
+\documentclass[border=1mm]{standalone}
+\usepackage{pgfplots}
+\usepgfplotslibrary{patchplots}
+\usepgfplotslibrary{colormaps}
+\usepackage{tikz-3dplot}
+
+\usepackage{amsmath}
+
+% #1 #2 #3 dimesions
+% #6 #7 #8 starting position
+% #4 color
+% #5 opacity
+\newcommand{\myColumn}[8]{
+	% Bottom rectangle
+	\plot3[solid, #4, line width=\axwidth] coordinates {(#1+#6,#2+#7,0+#8) (#1+#6,0+#7,0+#8) (0+#6,0+#7,0+#8) (0+#6,#2+#7,0+#8) (#1+#6,#2+#7,0+#8)};
+	% Back edge
+	\plot3[solid, #4, line width=\axwidth] 
+		coordinates {(0+#6,0+#7,0+#8) (0+#6,0+#7,#3+#8)};
+	% Fill front side
+	\plot3[draw=none, fill=#4!30, fill opacity=#5] 
+		coordinates {(#1+#6,0+#7,0+#8) (#1+#6,#2+#7,0+#8) (#1+#6,#2+#7,#3+#8) (#1+#6,0+#7,#3+#8)};	
+	% Fill top side
+	\plot3[draw=none, fill=#4!30, fill opacity=#5] 
+		coordinates {(0+#6,0+#7,#3+#8) (#1+#6,0+#7,#3+#8) (#1+#6,#2+#7,#3+#8) (0+#6,#2+#7,#3+#8)};	
+	% Fill right side
+	\plot3[draw=none, fill=#4!30, fill opacity=#5] 
+		coordinates {(0+#6,#2+#7,0+#8) (#1+#6,#2+#7,0+#8) (#1+#6,#2+#7,#3+#8) (0+#6,#2+#7,#3+#8)};
+	% Edges		
+	\plot3[solid, #4, line width=\axwidth] 
+		coordinates {(#1+#6,#2+#7,0+#8) (#1+#6,#2+#7,#3+#8)};
+	\plot3[solid, #4, line width=\axwidth] 
+		coordinates {(#1+#6,0+#7,0+#8) (#1+#6,0+#7,#3+#8)};
+	\plot3[solid, #4, line width=\axwidth] 
+		coordinates {(0+#6,#2+#7,0+#8) (0+#6,#2+#7,#3+#8)};
+	% Top rectangle	
+	\plot3[solid, #4, line width=\axwidth] coordinates {(#1+#6,#2+#7,#3+#8) (#1+#6,0+#7,#3+#8) (0+#6,0+#7,#3+#8) (0+#6,#2+#7,#3+#8) (#1+#6,#2+#7,#3+#8)};
+	
+}
+
+\begin{document}
+	
+\definecolor{deepskyblue}{rgb}{0.173,0.447,0.682}
+\definecolor{orangepeel}{rgb}{0.902, 0.624, 0}
+\definecolor{lightyellow}{rgb}{0.953,0.882,0.388}
+\definecolor{darkgreen}{rgb}{0.271, 0.608, 0.463}
+\definecolor{lightblue}{rgb}{0.484,0.702,0.894}
+\definecolor{rustred}{rgb}{0.784,0.392,0.149}
+\definecolor{fadedpink}{rgb}{0.753,0.494,0.643}
+
+\def\dcolor{deepskyblue}
+\def\rcolor{orangepeel}
+\def\myopacity{1}
+\def\axwidth{0.6}
+
+\pagestyle{empty}
+
+\begin{tikzpicture}[scale=1, rotate=0]     
+
+\begin{axis}[hide axis, 
+clip=false,
+xmin=0,xmax=2.0,
+ymin=0,ymax=2.0,
+zmin=0,zmax=4.0, 
+xlabel={$x$},
+ylabel={$y$},
+zlabel={$z$},
+view={110}{30}]   
+
+% Axes
+% X
+\def\xsplit{1}
+\draw[line width=\axwidth, -stealth] (axis cs:0,0,0) -- (axis cs:1.5,0,0)
+node[below left, xshift=2pt, yshift=2pt] {\small $x$}; 
+% Y
+\draw[line width=\axwidth, -stealth] (axis cs:0,0,0) -- (axis cs:0,1.25,0)
+node[right, yshift=-2pt] {\small $y$}; 
+% Z
+\draw[line width=\axwidth, solid] (axis cs:0,0,0) -- (axis cs:0,0,3); 
+\draw[line width=\axwidth, -stealth] (axis cs:0,0,3) -- (axis cs:0,0,3.5) 
+node[above] {\small $z$};     
+
+%% Rectangles
+\foreach \x in {0,0.25,...,0.75}{ 
+	\foreach \y in {0,0.25,...,0.75}{ 
+		\pgfmathsetmacro\f{3-(0.25+\x)^2-(0.25+\y)^2}; % the function
+		\myColumn{0.25}{0.25}{\f}{\rcolor}{\myopacity}{\x}{\y}{0};
+	};
+};
+
+% Surface
+\draw[draw=\dcolor, solid, line width=\axwidth/2, opacity=0.75, fill=\dcolor!50, left color=\dcolor!60, right color=\dcolor!70, middle color=\dcolor!20,fill opacity=0.1, shading angle=-45] 
+	plot[variable=\y, domain=0:1, samples=200] (axis cs:{0},{\y},{3-\y^2})
+	-- plot[variable=\x, domain=0:1, samples=200] (axis cs:{\x},{1},{3-\x^2-1})
+	-- plot[variable=\y, domain=1:0, samples=200] (axis cs:{1},{\y},{3-1-\y^2})
+	-- plot[variable=\x, domain=1:0, samples=200] (axis cs:{\x},{0},{3-\x^2})
+	--cycle; 
+
+\node[] at (axis cs:1,0.75,-1.25) {$L(f,P)$};
+\node[deepskyblue!80!black] at (axis cs:1,0.75,-2) {Lower Riemann sum};
+%\node[align=center] at (axis cs:1,0.75,-3) {(comulative volume of \\[-3pt] rectangular columns, \\[-3pt] underestimate)};
+
+\draw[->, lightgray!40, line width=8pt] (axis cs:1,0.75,-2.5) -- (axis cs:1,0.75,-4.5);
+
+\node[] at (axis cs:1,0.75,-5) {$\displaystyle \lim L(f,P)$};
+
+\end{axis}      
+
+\node[fill=fadedpink!20] at (6,0.25) {\small $\leq$};
+\node[fill=fadedpink!20] at (6,-2.8) {\small $=$};
+
+\begin{axis}[hide axis, shift={(6cm,0)},
+clip=false,
+xmin=0,xmax=2.0,
+ymin=0,ymax=2.0,
+zmin=0,zmax=4.0, 
+xlabel={$x$},
+ylabel={$y$},
+zlabel={$z$},
+view={110}{30}]   
+
+% Axes
+% X
+\def\xsplit{1}
+\draw[line width=\axwidth, -stealth] (axis cs:0,0,0) -- (axis cs:1.5,0,0)
+node[below left, xshift=2pt, yshift=2pt] {\small $x$}; 
+% Y
+\draw[line width=\axwidth, -stealth] (axis cs:0,0,0) -- (axis cs:0,1.25,0)
+node[right, yshift=-2pt] {\small $y$}; 
+% Z
+\draw[line width=\axwidth, solid] (axis cs:0,0,0) -- (axis cs:0,0,3); 
+\draw[line width=\axwidth, -stealth] (axis cs:0,0,3) -- (axis cs:0,0,3.5) 
+node[above] {\small $z$};     
+
+% Surface
+\draw[draw=\dcolor, solid, line width=\axwidth/2, opacity=0.75, fill=\dcolor!50, left color=\dcolor!60, right color=\dcolor!70, middle color=\dcolor!50,fill opacity=0.1, shading angle=-45] 
+	plot[variable=\y, domain=0:1, samples=200] (axis cs:{0},{\y},{3-\y^2})
+	-- plot[variable=\x, domain=0:1, samples=200] (axis cs:{\x},{1},{3-\x^2-1})
+	-- plot[variable=\y, domain=1:0, samples=200] (axis cs:{1},{\y},{3-1-\y^2})
+	-- plot[variable=\x, domain=1:0, samples=200] (axis cs:{\x},{0},{3-\x^2})
+	--cycle; 
+
+\draw[draw=\dcolor, solid, line width=\axwidth/2, opacity=0.5, fill=\dcolor!10] 
+	plot[variable=\y, domain=0:1, samples=200] (axis cs:{1},{\y},{3-1-\y^2})
+	-- (axis cs:1,1,0) -- (axis cs:1,0,0) -- cycle;
+	
+\draw[draw=\dcolor, solid, line width=\axwidth/2, opacity=0.5, fill=\dcolor!10] 
+	plot[variable=\x, domain=0:1, samples=200] (axis cs:{\x},{1},{3-\x^2-1})
+	-- (axis cs:1,1,0) -- (axis cs:0,1,0) -- cycle;
+
+\node[black, rotate=0] at (axis cs: 0, 1,3) {\small {$z=f(x,y)$}};
+\node[black, rotate=0] at (axis cs: 0.5, 0.5, 0) {\small {$D$}};
+
+\node[] at (axis cs:1,0.75,-1.25) {$V$};
+\node[deepskyblue!80!black] at (axis cs:1,0.75,-2) {Volume under the surface};
+
+\node[] at (axis cs:1,0.75,-5.2) {$\displaystyle \iint\limits_{D} f(x,y) \: \textrm{d}x \textrm{d}y$};
+
+\end{axis} 
+
+\node[fill=fadedpink!20] at (12,0.25) {\small $\leq$};
+\node[fill=fadedpink!20] at (12,-2.8) {\small $=$};
+
+\begin{axis}[hide axis, shift={(12cm,0)},
+clip=false,
+xmin=0,xmax=2.0,
+ymin=0,ymax=2.0,
+zmin=0,zmax=4.0, 
+xlabel={$x$},
+ylabel={$y$},
+zlabel={$z$},
+view={110}{30}]   
+
+% Axes
+% X
+\def\xsplit{1}
+\draw[line width=\axwidth, -stealth] (axis cs:0,0,0) -- (axis cs:1.5,0,0)
+node[below left, xshift=2pt, yshift=2pt] {\small $x$}; 
+% Y
+\draw[line width=\axwidth, -stealth] (axis cs:0,0,0) -- (axis cs:0,1.25,0)
+node[right, yshift=-2pt] {\small $y$}; 
+% Z
+\draw[line width=\axwidth, solid] (axis cs:0,0,0) -- (axis cs:0,0,3); 
+\draw[line width=\axwidth, -stealth] (axis cs:0,0,3) -- (axis cs:0,0,3.5) 
+node[above] {\small $z$};     
+
+%% Rectangles 
+\foreach \x in {0,0.25,...,0.75}{ 
+	\foreach \y in {0,0.25,...,0.75}{ 
+		\pgfmathsetmacro\f{3-(\x)^2-(\y)^2}; % the function
+		\myColumn{0.25}{0.25}{\f}{\rcolor}{\myopacity}{\x}{\y}{0};
+	};
+};
+
+% Surface
+\draw[draw=\dcolor, dashed, line width=\axwidth/2, opacity=0.75] plot[variable=\y, domain=0:1, samples=200] (axis cs:{0},{\y},{3-\y^2});
+\draw[draw=\dcolor, solid, line width=\axwidth/2, opacity=0.75]  plot[variable=\x, domain=0:1, samples=200] (axis cs:{\x},{1},{3-\x^2-1});
+\draw[draw=\dcolor, solid, line width=\axwidth/2, opacity=0.75]  plot[variable=\y, domain=1:0, samples=200] (axis cs:{1},{\y},{3-1-\y^2});
+\draw[draw=\dcolor, dashed, line width=\axwidth/2, opacity=0.75]  plot[variable=\x, domain=1:0, samples=200] (axis cs:{\x},{0},{3-\x^2});
+
+\node[] at (axis cs:1,0.75,-1.25) {$U(f,P)$};
+\node[deepskyblue!80!black] at (axis cs:1,0.75,-2) {Upper Riemann sum};
+%\node[align=center] at (axis cs:1,0.75,-3) {(comulative volume of \\[-3pt] rectangular columns, \\[-3pt] overestimate)};
+
+\draw[->, lightgray!40, line width=8pt] (axis cs:1,0.75,-2.5) -- (axis cs:1,0.75,-4.5);
+
+\node[] at (axis cs:1,0.75,-5) {$\displaystyle \lim U(f,P)$};
+
+\end{axis}
+    
+\end{tikzpicture}
+\end{document} 

@@ -32,3 +32,8 @@ I've privately tutored many students, specializing in the following areas:
 
 * GCSE
 
+I also have experience in a traditional classroom setting.
+
+
+
+

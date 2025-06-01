@@ -1,0 +1,232 @@
+\documentclass[tikz, border=5mm]{article} 
+\usepackage{pgfplots}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{cancel}
+\usepackage{enumerate}
+\usetikzlibrary{calc}  
+\usepackage{tikz-cd}
+
+\definecolor{deepskyblue}{rgb}{0.173,0.447,0.682}
+\definecolor{orangepeel}{rgb}{0.902, 0.624, 0}
+\definecolor{lightyellow}{rgb}{0.953,0.882,0.388}
+\definecolor{darkgreen}{rgb}{0.271, 0.608, 0.463}
+\definecolor{lightblue}{rgb}{0.484,0.702,0.894}
+\definecolor{rustred}{rgb}{0.784,0.392,0.149}
+\definecolor{fadedpink}{rgb}{0.753,0.494,0.643}
+
+\begin{document}
+\pagestyle{empty}
+
+
+%%Lattice Diag
+\def\firstcircle{(2,3) circle (1.5cm)}
+\def\secondcircle{(2,-1.5) circle (1.35cm)}
+\def\thirdcircle{(2,-5.5) circle (1.cm)}
+
+
+%%Other
+\def\fourthcircle{(8.5,-2.5) circle (1.5cm)}
+\def\fifthcircle{(8.5,3) circle (1.5cm)}
+\def\sixthcircle{(2,-2.5) circle (1.5cm)}
+
+
+
+\def\myellipse {(2.0,3.6) ellipse (1.25cm and 0.65cm)}
+
+\def\mysecondellipse {(2.0,-0.9) ellipse (1.0cm and 0.55cm)}
+
+\def\mythirdellipse {(2.0,-0.9) ellipse (0.8cm and 0.45cm)}
+
+\begin{center}
+\begin{tikzpicture}
+
+%% Key
+
+%\node[xshift=0pt, rectangle, inner sep=4.5pt, draw=none, fill=deepskyblue, label={0:{\small $\color{deepskyblue!80!black} H = \{0,2,4,6\}$}}] at (0,6.5) {};
+%
+%\node[xshift=0pt, rectangle, inner sep=4.5pt, draw=none, fill=fadedpink, label={0:{\small $\color{fadedpink!80!black} K = \{0,4\}$}}] at (0,5.75) {};
+
+%\node[xshift=0pt, rectangle, inner sep=4.5pt, draw=none, fill=orangepeel, label={0:{\small $\color{orangepeel!80!black} H/K = \big\{\{0,4\}, \{2,6\}\big\}$}}] at (6,-6) {};
+
+
+
+%%% G
+\begin{scope}[shift={(0,0)}]
+\draw[thin,gray] \firstcircle node[text=black, above=1.5cm] {\large $\mathbb{Z}_8$};
+% G
+\node[xshift=-8pt, circle, draw=none, fill=deepskyblue, inner sep=2.5pt, label={90:{\small $\color{deepskyblue}0$}}] at (1.5,3.3) {};
+\node[xshift=-8pt, circle, draw=none, fill=deepskyblue, inner sep=2.5pt, label={90:{\small $\color{deepskyblue}2$}}] at (2.0,3.3) {};
+\node[xshift=-8pt, circle, draw=none, fill=deepskyblue, inner sep=2.5pt, label={90:{\small $\color{deepskyblue}4$}}] at (2.5,3.3) {};
+\node[xshift=-8pt, circle, draw=none, fill=deepskyblue, inner sep=2.5pt, label={90:{\small $\color{deepskyblue}6$}}] at (3.0,3.3) {};
+
+
+\node[xshift=-8pt, circle, draw=none, fill=deepskyblue!30, inner sep=2.5pt, label={-90:{\small $\color{deepskyblue!30}1$}}] at (1.5,2.6) {};
+\node[xshift=-8pt, circle, draw=none, fill=deepskyblue!30, inner sep=2.5pt, label={-90:{\small $\color{deepskyblue!30}3$}}] at (2.0,2.6) {};
+\node[xshift=-8pt, circle, draw=none, fill=deepskyblue!30, inner sep=2.5pt, label={-90:{\small $\color{deepskyblue!30}5$}}] at (2.5,2.6) {};
+\node[xshift=-8pt, circle, draw=none, fill=deepskyblue!30, inner sep=2.5pt, label={-90:{\small $\color{deepskyblue!30}7$}}] at (3.0,2.6) {};
+
+
+%% G/H
+\draw[thin,gray] \fifthcircle node[text=black, above=1.5cm] {\large $\mathbb Z_8/H\cong \mathbb Z_2$};
+%\draw[thin,gray,dashed,fill=fadedpink!15] \mythirdellipse node[text=black, below=1.25cm] {$ $};
+
+\node[xshift=-8pt, rectangle, inner sep=4.5pt, draw=none, fill=deepskyblue, label={[above]:{\scriptsize $\color{deepskyblue!80!black}\{0,2,4,6\}$}}] at (8.75,3.3) {};
+
+
+\node[xshift=-8pt, rectangle, inner sep=4.5pt, draw=none, fill=deepskyblue, label={[left=3pt, yshift=-5pt]:{\small $\color{black}1\,+$}}] at (8.75,2.5) {};
+
+
+%% G/K
+\draw[thin,gray] \sixthcircle node[text=black, below=1.5cm] {\large $\mathbb Z_8/K\cong \mathbb Z_4$};
+%\draw[thin,gray,dashed,fill=fadedpink!15] \mythirdellipse node[text=black, below=1.25cm] {$ $};
+
+
+\node[xshift=-8pt, rectangle, inner sep=4.5pt, draw=none, fill=fadedpink, label={[above]:{\scriptsize $\color{fadedpink!80!black}\{0,4\}$}}] at (1.75,-2.2) {};
+
+
+\node[xshift=-8pt, rectangle, inner sep=4.5pt, draw=none, fill=fadedpink, label={180:{\small $\color{black}1\,+\!$}}] at (3.0,-2.2) {};
+
+\node[xshift=-8pt, rectangle, inner sep=4.5pt, draw=none, fill=fadedpink, label={180:{\small $\color{black}2\,+\!$}}] at (1.75,-3.0) {};
+
+\node[xshift=-8pt, rectangle, inner sep=4.5pt, draw=none, fill=fadedpink, label={180:{\small $\color{black}3\,+\!$}}] at (3.0,-3.0) {};
+
+
+
+%%% (G/K)/(H/K)
+\draw[thin,gray] \fourthcircle node[text=black, below=1.5cm] {\large $(\mathbb Z_8/K)/(H/K)\cong \mathbb Z_2$};
+
+
+\node[xshift=0pt, rectangle, inner sep=4.5pt, draw=none, fill=orangepeel, label={[above]:{\scriptsize $\color{orangepeel!80!black}\big\{\{0,4\},\{2,6\}\big\}$}}] at (8.5,-2.2) {};
+
+
+%\node[xshift=-8pt, rectangle, inner sep=4.5pt, draw=none, fill=fadedpink, label={180:{\small $\big\{\color{black}2\,+\!$}}] at (8.5,-3.0) {};
+
+
+\node[xshift=0pt, rectangle, inner sep=4.5pt, draw=none, fill=orangepeel, label={180:{\small $1\,+$}}] at (8.5,-3) {};
+
+%\node[xshift=0pt,  fill=orangepeel, label={[below, yshift=-10pt]:{\scriptsize $\color{orangepeel!80!black}\big\{\{0,4\},\{2,6\}\big\}$}}] at (8.5,-3) {};
+
+
+
+
+
+
+% Gamma_H
+\draw[->, very thick] (4.0,3) -- (6.5,3) node[midway, above] {\large $\gamma_{\color{deepskyblue!80!black}H}$}; 
+
+% Gamma_K
+\draw[<-, very thick] (2,-0.75) -- (2,1.25) node[midway, left] {\large $\gamma_{\color{fadedpink!80!black}K}$};
+
+% Gamma_H/K
+\draw[->, very thick] (4.0,-2.5) -- (6.5,-2.5) node[midway, above] {\large $\gamma_{{{\color{deepskyblue!80!black}H}}/{\color{fadedpink!80!black}K}}$}; 
+
+
+\draw[<->, very thick] (8.5,-0.75) -- (8.5,1.25) node[midway, right] {\large $\mu\,(\cong)$}; 
+
+
+
+\end{scope}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%% Lattice Diagram
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%\begin{scope}[shift={(12.25,0)}, scale=1]
+%% K < H < G
+%
+%\draw[thin,gray] \firstcircle node[text=black, right=1.5cm] {$G = \mathbb{Z}_8$};
+%\draw[thin,gray] \secondcircle node[text=black, right=1.5cm] {$H < G$};
+%\draw[thin,gray] \thirdcircle node[text=black, right=1.5cm] {$K < H$};
+%
+%
+%\draw[thin,gray,dashed,fill=lightblue!15] \myellipse node[text=black, below=1.25cm] {$ $};
+%\draw[thin,gray,dashed,fill=fadedpink!15] \mysecondellipse node[text=black, below=1.25cm] {$ $};
+%
+%
+%
+%
+%
+%% G
+%\node[xshift=-8pt, circle, draw=none, fill=deepskyblue, inner sep=2.5pt, label={90:{\small $\color{deepskyblue}0$}}] at (1.5,3.5) {};
+%\node[xshift=-8pt, circle, draw=none, fill=deepskyblue, inner sep=2.5pt, label={90:{\small $\color{deepskyblue}2$}}] at (2.0,3.5) {};
+%\node[xshift=-8pt, circle, draw=none, fill=deepskyblue, inner sep=2.5pt, label={90:{\small $\color{deepskyblue}4$}}] at (2.5,3.5) {};
+%\node[xshift=-8pt, circle, draw=none, fill=deepskyblue, inner sep=2.5pt, label={90:{\small $\color{deepskyblue}6$}}] at (3.0,3.5) {};
+%
+%
+%
+%\node[xshift=-8pt, circle, draw=none, fill=orangepeel, inner sep=2.5pt, label={-90:{\small $\color{orangepeel}1$}}] at (1.5,2.5) {};
+%\node[xshift=-8pt, circle, draw=none, fill=orangepeel, inner sep=2.5pt, label={-90:{\small $\color{orangepeel}3$}}] at (2.0,2.5) {};
+%\node[xshift=-8pt, circle, draw=none, fill=orangepeel, inner sep=2.5pt, label={-90:{\small $\color{orangepeel}5$}}] at (2.5,2.5) {};
+%\node[xshift=-8pt, circle, draw=none, fill=orangepeel, inner sep=2.5pt, label={-90:{\small $\color{orangepeel}7$}}] at (3.0,2.5) {};
+%
+%
+%
+%%% H < G
+%
+%\node[xshift=-8pt, circle, draw=none, fill=fadedpink, inner sep=2.5pt, label={90:{\small $\color{fadedpink}0$}}] at (1.75,-1.0) {};
+%\node[xshift=-8pt, circle, draw=none, fill=fadedpink, inner sep=2.5pt, label={90:{\small $\color{fadedpink}4$}}] at (2.75,-1.0) {};
+%
+%\node[xshift=-8pt, circle, draw=none, fill=deepskyblue, inner sep=2.5pt, label={-90:{\small $\color{deepskyblue}2$}}] at (1.75,-2) {};
+%\node[xshift=-8pt, circle, draw=none, fill=deepskyblue, inner sep=2.5pt, label={-90:{\small $\color{deepskyblue}6$}}] at (2.75,-2) {};
+%
+%
+%%% K < H
+%
+%\node[xshift=-8pt, circle, draw=none, fill=fadedpink, inner sep=2.5pt, label={90:{\small $\color{fadedpink}0$}}] at (2.0,-5.5) {};
+%\node[xshift=-8pt, circle, draw=none, fill=fadedpink, inner sep=2.5pt, label={90:{\small $\color{fadedpink}4$}}] at (2.5,-5.5) {};
+%
+%
+%%H to G
+%\draw[<-, very thick] (2,0.25) -- (2,1.25) node[midway, left] {$ $};
+%
+%%K to H
+%\draw[<-, very thick] (2,-4.25) -- (2,-3.25) node[midway, left] {$ $};
+%
+%
+%\end{scope}
+
+\end{tikzpicture}
+\end{center}
+
+\newpage
+
+
+\textbf{THE THIRD ISOMORPHISM THEOREM:}
+
+\[
+\begin{tikzcd}[column sep=5em,row sep=5em]
+    G \arrow{r}{\gamma_H} \arrow{d}[left]{\gamma_K} & G/H \\
+    G/K \arrow{r}{\gamma_{H/K}} & (G/K)/(H/K) \arrow[leftrightarrow]{u}[right]{\mu\,(\cong)} 
+\end{tikzcd}
+\]
+ 
+\textbf{CONCRETE EXAMPLE:}
+
+\begin{align*}
+& H = \{0,2,4,6\} \\[3pt]
+& K = \{0,4\} \\[3pt]
+& H/K = \big\{ \{0,4\}, \{2,6\} \big\}
+\end{align*}
+
+
+\begin{align*}
+& \gamma_H: \mathbb{Z}_{8} \to \mathbb{Z}_{8}/H, \quad \textrm{where} \quad \gamma_H(x) = x + H \\[3pt]
+& \gamma_K: \mathbb{Z}_{8} \to \mathbb{Z}_{8}/K, \quad \textrm{where} \quad \gamma_K(x) = x + K \\[3pt]
+& \gamma_H/K: \mathbb{Z}_{8}/K \to (\mathbb{Z}_{8}/K)/(\mathbb{Z}_{8}/H), \quad \textrm{where} \quad \gamma_{H/K}(x) = x + H/K
+\end{align*}
+
+\[
+\begin{tikzcd}[column sep=5em,row sep=5em]
+    \mathbb{Z}_{8} \arrow{r}{\gamma_H} \arrow{d}[left]{\gamma_K} & \mathbb{Z}_{8}/\{0,2,4,6\} \\
+    \mathbb{Z}_{8}/\{0,4\} \arrow{r}{\gamma_{H/K}} & (\mathbb{Z}_{8}/\{0,4\})/(\mathbb{Z}_{8}/\{0,2,4,6\}) \arrow[leftrightarrow]{u}[right]{\mu\,(\cong)} 
+\end{tikzcd}
+\]
+
+
+\end{document}
