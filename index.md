@@ -4,26 +4,16 @@ title: Home
 theme: minima
 ---
 
-**Please Note:** This site is under construction.
-
 <img class="float-image-left" src="assets/images/profile.jpg" width = "300px">
 
-I'm Alex, a mathematican based in Tonbridge, England. 
+I’m Alex Smith, a mathematician and curriculum builder based in Kent, England.
 
-I've been the chief content architect at [Math Academy](/math-academy.html) since 2017. I started off just writing tutorials, but this quickly expanded into managing an entire team of content developers. We now have a team of over ten mostly Ph.D. mathematicians contributing to our enormous content-base every day.  
+I’m the Chief Content Architect at <a href="http://www.mathacademy.com/">Math Academy</a>, where I’ve helped build a large-scale mathematics curriculum designed around structure, prerequisites, and long-term mastery. I joined in 2017 as a tutorial writer. Over time, that work expanded into leading content development across a growing team of mathematicians, most of them Ph.D.-level, contributing to a substantial and continually expanding body of material.
 
-I have a Ph.D. in mathematics from University College London. 
+The clearest expression of this work is a knowledge graph I designed covering more than 3,000 mathematics topics, spanning the full pathway from 4th-grade mathematics to university-level material. To me, that graph is not just a way of organizing content. It reflects the dependency structure of mathematics itself: what ideas rest on what foundations, what readiness actually means, and why sequencing matters.
 
-I've taught math to hundreds of students over the years. My of my experience is at undergraduate and A-level. Finding ways to effectively communicate math at *all* levels in my passion.
+My academic background is in applied mathematics, and I hold a Ph.D. in Mathematics from University College London. Although my formal training is in applied math, I have always been drawn to pure mathematics as well.
 
-I've been married for fourteen years, and have one son who is six years old.  
+Over the years, I’ve taught mathematics to hundreds of students, especially at A-level and undergraduate level. That experience has shaped how I think about mathematical development: strong performance is rarely a mystery. More often, it is the result of well-ordered knowledge, secure foundations, and careful communication.
 
-I call myself the Math Ninjas because (a) I think it's a cool-sounding name, and (b) I was a pretty good martial artist in my youth.
-
-Some math:
-
-$$
-e^{i\pi} + 1 = 0
-$$
-
-
+My work sits at the intersection of mathematics, curriculum design, learning, and system design. I’m interested not only in explaining difficult ideas clearly, but also in building functioning systems — involving both people and technology — that make serious, high-quality work possible at scale.
