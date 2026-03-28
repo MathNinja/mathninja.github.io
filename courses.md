@@ -4,7 +4,7 @@ title: Courses
 theme: minima
 ---
 
-## Courses
+# Courses
 
 As curriculum director of Math Academy, I have overseen the creation of the following courses:
 
