@@ -70,8 +70,7 @@ As curriculum director of Math Academy, I have overseen the creation of the foll
   <li><a href="https://mathacademy.com/courses/differential-equations">Differential Equations</a></li>
  
   <li><a href="https://mathacademy.com/courses/probability-and-statistics">Probability &amp; Statistics</a></li>
-  <li><a href="https://mathacademy.com/courses/mathematics-for-machine-learning">Mathematics for Machine Learning</a></li>
-
+ 
 </ul>
 
 ### Machine Learning

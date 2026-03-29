@@ -1,13 +1,14 @@
 - name: Home
   link: /
+- name: About
+  link: /about.html
+- name: Courses
+  link: /courses.html
 - name: Blog
   link: /blog.html
 - name: Media
   link: /media.html
-- name: Courses
-  link: /courses.html
-- name: About
-  link: /about.html
+
 # - name: Math Academy
 #   link: /math-academy.html
 # - name: Links

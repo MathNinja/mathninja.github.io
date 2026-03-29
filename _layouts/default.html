@@ -22,10 +22,10 @@
   </head>
   <body>
   <header>
-  	<div class="container">
-  	<div class="circle"></div>
+  	<div class="container site-header__inner">
+  	  <span class="site-header__name">{{ site.header_name | default: site.title }}</span>
+  	  <div class="circle"></div>
     </div>
-   	
   </header> 
     <div class="container">{% include navigation.html %}</div>
  
