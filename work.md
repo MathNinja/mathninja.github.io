@@ -1,25 +1,22 @@
 ---
 layout: default
-title: Courses
+title: Work
 theme: minima
 ---
 
-# Courses
+## Work
 
 As curriculum director of Math Academy, I have overseen the creation of the following courses:
 
-### Middle School
+#### Middle School
 
 <ul>
   <li><a href="https://mathacademy.com/courses/4th-grade-math">4th Grade Math</a></li>
   <li><a href="https://mathacademy.com/courses/5th-grade-math">5th Grade Math</a></li>
- <li><a href="https://mathacademy.com/courses/6th-grade-math">6th Grade Math</a></li>  
-  <li>7th Grade Math (coming soon)</li>
-  <li>8th Grade Math (coming soon)</li>      
   <li><a href="https://mathacademy.com/courses/prealgebra">Prealgebra</a></li>
 </ul>
 
-### High School (Traditional)
+#### High School (Traditional)
 
 <ul>
   <li><a href="https://mathacademy.com/courses/algebra-i">Algebra I</a></li>
@@ -39,21 +36,21 @@ As curriculum director of Math Academy, I have overseen the creation of the foll
   <li><a href="https://mathacademy.com/courses/integrated-math-iii-honors">Integrated Math III (Honors)</a></li>
   </ul>
 
-### Test Prep
+#### Test Prep
 
 <ul>
   <li><a href="https://mathacademy.com/courses/sat-math-fundamentals">SAT Math Fundamentals</a></li>
   <li><a href="https://mathacademy.com/courses/sat-math-prep">SAT Math Prep</a></li>
 </ul>
 
-### High School Calculus
+#### High School Calculus
 
 <ul>
  <li><a href="https://mathacademy.com/courses/ap-calculus-ab">AP Calculus AB</a></li>
   <li><a href="https://mathacademy.com/courses/ap-calculus-bc">AP Calculus BC</a></li>
 </ul>
 
-### Foundations Sequence (for Adults)
+#### Foundations Sequence (for Adults)
 
 <ul>
   <li><a href="https://mathacademy.com/courses/mathematical-foundations-i">Mathematical Foundations I</a></li>
@@ -61,7 +58,7 @@ As curriculum director of Math Academy, I have overseen the creation of the foll
   <li><a href="https://mathacademy.com/courses/mathematical-foundations-iii">Mathematical Foundations III</a></li>
 </ul>
 
-### University-Level Math (Applied)
+#### University-Level Math (Applied)
 
 <ul>
 
@@ -73,36 +70,20 @@ As curriculum director of Math Academy, I have overseen the creation of the foll
   <li><a href="https://mathacademy.com/courses/differential-equations">Differential Equations</a></li>
  
   <li><a href="https://mathacademy.com/courses/probability-and-statistics">Probability &amp; Statistics</a></li>
- 
-</ul>
-
-### University-Level Math (Pure)
-
-<ul>
-<li><a href="https://mathacademy.com/courses/methods-of-proof">Methods of Proof</a>
-</li>
-<li>
-<a href="https://mathacademy.com/courses/discrete-mathematics">Discrete Mathematics</a>
-</li>
-<li>Abstract Algebra (coming soon)</li>
-<li>Complex Variables (coming soon)</li>
-</ul>
-
-### Machine Learning
-
-<ul>
   <li><a href="https://mathacademy.com/courses/mathematics-for-machine-learning">Mathematics for Machine Learning</a></li>
-  <li>Machine Learning I (coming soon)</li>
-  <li>Machine Learning II (coming soon)</li>
+
 </ul>
 
+#### University-Level Math (Pure)
 
+<ul>
+  <li><a href="https://mathacademy.com/courses/methods-of-proof">Methods of Proof</a></li>
+   <li><a href="https://mathacademy.com/courses/discrete-mathematics">Discrete Mathematics</a></li>
+   </ul>
 
-
-### Mathematics for the Physical Sciences
+#### Mathematics for the Physical Sciences
 
 <ul>
   <li><a href="https://mathacademy.com/courses/mathematical-methods-for-the-physical-sciences-i">Mathematical Methods for the Physical Sciences I</a></li>
   <li><a href="https://mathacademy.com/courses/mathematical-methods-for-the-physical-sciences-ii">Mathematical Methods for the Physical Sciences II</a></li>
-<li>Mathematical Methods for the Physical Sciences III (coming soon)</li>  
 </ul>
