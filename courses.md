@@ -14,7 +14,8 @@ As curriculum director of Math Academy, I have overseen the creation of the foll
   <li><a href="https://mathacademy.com/courses/4th-grade-math">4th Grade Math</a></li>
   <li><a href="https://mathacademy.com/courses/5th-grade-math">5th Grade Math</a></li>
  <li><a href="https://mathacademy.com/courses/6th-grade-math">6th Grade Math</a></li>  
-  <li>7th Grade Math (coming soon)</li>
+<li><a href="https://mathacademy.com/courses/7th-grade-math">7th Grade Math</a></li>  
+
   <li>8th Grade Math (coming soon)</li>      
   <li><a href="https://mathacademy.com/courses/prealgebra">Prealgebra</a></li>
 </ul>
